@@ -1,0 +1,10 @@
+
+int atoi(const char *nptr);
+
+long atol(const char *nptr);
+
+long long atoll(const char *nptr);
+
+convert a string to an integer
+
+return: 0 is not digital ascii. -1 if error length

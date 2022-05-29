@@ -1,0 +1,4 @@
+
+Static expression (compile time checking):
+
+static_assert ( bool_constexpr , message ); //(since C++11)

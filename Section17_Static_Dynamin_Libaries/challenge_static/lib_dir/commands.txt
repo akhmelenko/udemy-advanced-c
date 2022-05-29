@@ -1,0 +1,11 @@
+
+Create a library source files: (main.c + my_lib.h)
+
+Compile library files in separate directory: 
+gcc -c main.c -o lib_mylib.o (result: lib_mylib.o)
+
+Create an archive: 
+ar rcs lib_mylib.a lib_mylib.o  (result: lib_mylib.a)
+
+Or create an archive: 
+ar -cvq lib_mylib.a lib_mylib.o  (result: lib_mylib.a)

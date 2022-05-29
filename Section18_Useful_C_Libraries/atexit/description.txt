@@ -1,0 +1,17 @@
+stdlib.h 
+int atexit(void (*function)(void)); 
+- Register a function to be called at normal process termination
+
+- Can register up to ATEXIT_MAX (32) functions
+
+- Returns: 
+    the value 0 if successful; otherwise it returns a nonzero value.
+
+- When a child process is created via fork(2), 
+    it inherits copies of its parent's registrations.  
+    Upon a successful call to one of the exec(3) functions, 
+    all registrations are removed.
+
+- Exit functions calls in backward order
+
+- Work with exit() and without it

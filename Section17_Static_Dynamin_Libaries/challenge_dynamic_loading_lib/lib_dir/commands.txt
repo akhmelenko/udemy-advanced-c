@@ -1,0 +1,7 @@
+
+Create a library source files: (main.c)
+
+Dynamic Library Creation:
+$ gcc -g -fpic my_lib.c -shared -o lib_mylib.so
+ ( -fpic option link position-independent code; 
+ -shared option instructs the linker to create a dynamic shared library and not a static library)

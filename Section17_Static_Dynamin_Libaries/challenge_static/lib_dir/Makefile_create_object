@@ -1,0 +1,7 @@
+
+SRC = main.c
+
+OBJ = lib_mylib.o
+
+PROG:
+	gcc -c ${SRC} -o ${OBJ}

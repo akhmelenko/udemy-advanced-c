@@ -1,0 +1,8 @@
+char *strdup(const char *s); 
+char *strndup(const char *s, size_t n);
+
+- string.h
+
+- Returns a pointer to a new string which is a duplicate of the string s.  Memory for the new string is obtained with malloc(), and can be freed with free()
+
+- strndup() function is similar, but copies at most n bytes. If s is longer than n, only n bytes are copied, and a terminating null byte ('\0') is added

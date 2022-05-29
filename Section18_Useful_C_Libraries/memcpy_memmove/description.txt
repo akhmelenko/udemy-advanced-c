@@ -1,0 +1,13 @@
+#include <string.h>
+
+void *memcpy(void *restrict dest, const void *restrict src, size_t n);
+
+Copies n bytes from memory area src to memory area dest.  The memory areas must not overlap.  Use memmove() if the memory areas do overlap
+
+Returns a pointer to dest
+
+void *memmove(void *dest, const void *src, size_t n);
+
+Copies n bytes from memory area src to memory area dest.  The memory areas may overlap: copying takes place as though the bytes in src are first copied into a temporary array that does not overlap src or dest, and the bytes are then copied from the temporary array to dest
+
+Returns a pointer to dest

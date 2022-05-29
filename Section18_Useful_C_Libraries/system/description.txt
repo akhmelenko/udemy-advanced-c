@@ -1,0 +1,11 @@
+int system(const char *command);
+
+- Execute a shell command
+    The system() library function uses fork() to create 
+    a child process that executes the shell command specified in command using execl() as follows:
+    execl("/bin/sh", "sh", "-c", command, (char *) NULL);
+
+    system() returns after the command has been completed.
+
+- Return
+    -1 on Error

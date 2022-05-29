@@ -1,0 +1,8 @@
+
+OBJ = lib_mylib.o
+
+ARCH = lib_mylib.a
+
+PROG:
+#	ar rcs ${ARCH} ${OBJ}
+	ar -cvq ${ARCH} ${OBJ}

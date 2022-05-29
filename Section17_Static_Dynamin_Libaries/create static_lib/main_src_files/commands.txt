@@ -1,0 +1,26 @@
+
+Create a source files: (main.c)
+
+Create object file: 
+gcc -I ../lib_dir/ -c main.c -o main.o  (result: main.o)
+
+Link object file with library object file: 
+gcc -o main main.o ../lib_dir/lib_mylib.a (result: main)
+
+
+Makefile:
+
+ALL: BUILD_OBJ BUILD_PROG
+
+#build an object file ("-c" - compile or assemble the source files, but do not link)
+SRC = main.c
+OBJ = main.o
+LIB_DIR_PATH = ../lib_dir/
+BUILD_OBJ:
+	gcc -I $(LIB_DIR_PATH) -c ${SRC} -o ${OBJ}
+
+# link object file with lib archive
+LIB_ARCH_PATH = ../lib_dir/lib_mylib.a
+PROG = main
+BUILD_PROG:
+	gcc ${OBJ} ${LIB_ARCH_PATH} -o ${PROG}

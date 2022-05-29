@@ -1,0 +1,18 @@
+stdlib.h 
+noreturn void abort(void);
+
+- Cause abnormal process termination
+
+- Raises the SIGABRT signal
+
+- Returns an implementation defined code indicating unsuccessful termination
+
+- Causes noticeable failure, dump core and generate core file
+
+- No files closed, no streams closed, temp files not deleted
+
+- If the SIGABRT signal is ignored, 
+    or caught by a handler that returns, 
+    the abort() function will still terminate the process. 
+    It does this by restoring the default disposition 
+    for SIGABRT and then raising the signal for a second time.

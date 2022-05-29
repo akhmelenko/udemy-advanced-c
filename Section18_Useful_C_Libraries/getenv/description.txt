@@ -1,0 +1,8 @@
+char *getenv(const char *name);
+
+- Searches the environment list to find the environment variable name, 
+    and returns a pointer to the corresponding value string
+
+- Returns a pointer to the value in the environment, or NULL if there is no match
+
+*"env" - to print environment variables

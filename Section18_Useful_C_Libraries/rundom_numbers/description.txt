@@ -1,0 +1,11 @@
+Random
+- hardware based source
+- seed value (time, network traffic)
+
+int rand(void);
+- creates random numbers
+- return number in range [0, RAND_MAX]
+
+void srand(unsigned seed);
+ - set starting point for generating a series of pseudo-random interegs
+ - call before the rand()

@@ -1,0 +1,16 @@
+https://kth.instructure.com/courses/24933/pages/tutorial-introduction-to-timing-gperftools-perf-and-papi
+
+- Install gperftools:
+$ sudo apt install google-perftools libgoogle-perftools-dev libblas-dev
+
+
+- C program compile with "-lprofiler" flag
+gcc main.c -lprofiler -g -Wall -o main
+
+
+$ env CPUPROFILE=report.prof ./main
+Start main
+
+
+
+$ google-pprof --text  main report.prof

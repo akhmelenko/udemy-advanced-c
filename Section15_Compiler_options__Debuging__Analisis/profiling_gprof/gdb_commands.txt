@@ -1,0 +1,11 @@
+
+- C program must be compiled with "gcc -pg" option
+gcc main.c source.c -pg -o main
+
+
+- Start binary
+./main
+
+
+- Start profiling with "gprof":
+$ gprof main gmon.out

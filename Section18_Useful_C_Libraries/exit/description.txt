@@ -1,0 +1,9 @@
+stdlib.h: noreturn void exit(int status); // terminates program at any point called
+
+- All open stdio(3) streams are flushed and closed.  
+Files created by tmpfile(3) are removed. 
+All open files are closed.
+
+- status: 
+    EXIT_FAILURE - non zero, 
+    EXIT_SUCCESS - 0.

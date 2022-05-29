@@ -1,0 +1,138 @@
+
+- C program must be compiled with "gcc -g" option
+
+
+- GDB your program start "(gdb) run"
+
+
+- GDB show code "list":
+
+(gdb) list 7  // show around 7 line
+2       #include "header.h"
+3
+4       int var = 9;
+5
+6       struct person
+7       {
+8           char name[50];
+9           int age;
+10      } me = {"Anton", 40};
+11
+(gdb) list Sum, 20 // "Sum" - func name, 20 - last line to show
+13      {
+14          int var = 29;
+15          int buf[5] = {1, 2, 3, 4, 5};
+16          int sum = 0;
+17          for (int i = 0; i >= 0; i++)
+18          {
+19              sum += buf[i]; // seg fault
+20          }
+(gdb) list 13,15 // show range from 13 line to 15
+13          {
+14              sum += buf[i]; // seg fault
+15          }
+(gdb) list - // show previous 10 lines of code
+3
+4       int varHeader = 19;
+5
+6       int Sum()
+7       {
+8
+9           int var = 29;
+10          int buf[5] = {1, 2, 3, 4, 5};
+11          int sum = 0;
+12          for (int i = 0; i >= 0; i++)
+(gdb) list + // show next 10 lines of code
+13          {
+14              sum += buf[i]; // seg fault
+15          }
+16      }
+
+
+- GDB print variable value:
+
+(gdb) print sum // "sum" - variable name
+$1 = -266632617
+(gdb) print i // i - variable name
+$2 = 2116 
+(gdb) print buf
+$3 = {1, 2, 3, 4, 5}
+(gdb) print buf[2]
+$4 = 3
+
+
+- GDB set variable:
+
+(gdb) set var i = 5
+(gdb) print i
+$5 = 5
+(gdb) set var i = 5
+(gdb) print i
+$6 = 5
+(gdb) set var i = i * 2
+(gdb) print i
+$7 = 10
+(gdb) set var i = $7 + 5
+(gdb) print i
+$8 = 15
+
+
+- GDB access to variables inside the functions:
+
+(gdb) print Sum::sum
+$1 = 832033925
+(gdb) print main::sum
+$2 = 0
+(gdb) set main::sum = 1
+(gdb) print main::sum
+$3 = 1
+(gdb) print sum
+$4 = 832033925 // by default show local variable
+
+
+- GDB show all local variables
+
+(gdb) info locals
+i = 2124
+var = 29
+buf = {1, 2, 3, 4, 5}
+sum = -1201189030
+
+
+ - GDB show file global variables:
+
+(gdb) print 'main.c'::var
+$4 = 9
+
+
+- GDB show structure variable fields:
+
+(gdb) print me->age
+$1 = 40
+(gdb) print me.age // the "." is the same as "->"
+$4 = 40
+(gdb) print me->name
+$2 = "Anton", '\000' <repeats 44 times>
+(gdb) print me.name
+$3 = "Anton", '\000' <repeats 44 times>
+(gdb) print me // print all structure variable
+$5 = {name = "Anton", '\000' <repeats 44 times>, age = 40}
+
+
+- GDB show variable in hex format:
+
+(gdb) print /x i
+$6 = 0x84c
+
+
+- GDB show current source file:
+
+(gdb) info source
+Current source file is source.c
+Compilation directory is /mnt/d/Anton/study/Udemy_Advanced_C/Section15_Compiler_options__Debuging__Analisis/gdb_debugging
+Located in /mnt/d/Anton/study/Udemy_Advanced_C/Section15_Compiler_options__Debuging__Analisis/gdb_debugging/source.c
+Contains 16 lines.
+Source language is c.
+Producer is GNU C17 9.3.0 -mtune=generic -march=x86-64 -g -fasynchronous-unwind-tables -fstack-protector-strong -fstack-clash-protection -fcf-protection.
+Compiled with DWARF 2 debugging format.
+Does not include preprocessor macro info.

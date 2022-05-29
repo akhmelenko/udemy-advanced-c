@@ -1,0 +1,16 @@
+
+Create a source files: (main.c)
+
+Add include file to src: 
+#include <my_lib.h>
+
+Create src object file: 
+$ gcc -I ../lib_dir -c main.c -o main.o
+
+Create src binary file: 
+$ gcc -o main main.o -L../lib_dir -l mylib
+
+Add absolute library path to system: 
+$ export LD_LIBRARY_PATH=/mnt/d/Anton/study/Udemy_Advanced_C/Section17_Static_Dynamin_Libaries/create_dynamic_lib/lib_dir:$LD_LIBRARY_PATH
+
+* Or copy libmylib.so to /usr/lib
